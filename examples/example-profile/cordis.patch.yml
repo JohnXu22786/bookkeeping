@@ -1,0 +1,7 @@
+# Profile-level patch for the example profile.
+# Overrides the bookkeeping plugin's configuration (see README "Configuration").
+- insert:
+    - id: bookkeeping
+      name: dsh-bookkeeping
+      config:
+        currency: CNY

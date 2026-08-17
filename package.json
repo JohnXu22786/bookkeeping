@@ -1,0 +1,65 @@
+{
+  "name": "dsh-bookkeeping",
+  "version": "1.0.0",
+  "description": "Conversational bookkeeping plugin for DeepSeek Harness: record expenses/income by chat, query the ledger, run reports, export CSV/HTML, and track monthly budgets.",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    },
+    "./cli": {
+      "types": "./dist/src/cli.d.ts",
+      "default": "./dist/src/cli.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/src",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "dsh-bookkeeping": "./dist/src/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && node --test \"dist/test/*.test.js\"",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.6",
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "better-sqlite3": "^13.0.3"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.0"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "bookkeeping",
+    "ledger",
+    "accounting",
+    "expense",
+    "budget",
+    "deepseek-harness"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "dsh-example-bookkeeping-profile",
+  "private": true,
+  "description": "Example dsh profile wiring the local dsh-bookkeeping bundle. Replace the dependency spec with the path to your built copy.",
+  "dependencies": {
+    "dsh-bookkeeping": "link:../../"
+  },
+  "dsh": {
+    "profile": {
+      "bundles": [
+        "@deepseek-ai/dsh-base",
+        "dsh-bookkeeping"
+      ]
+    }
+  }
+}

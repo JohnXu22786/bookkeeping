@@ -1,0 +1,6 @@
+# dsh-bookkeeping bundle patch.
+# Inserts the bookkeeping plugin into a running dsh composition.
+# See: https://github.com/deepseek-ai/deepseek-harness (docs/user/develop/basic/publish.md)
+- insert:
+    - id: bookkeeping
+      name: dsh-bookkeeping
