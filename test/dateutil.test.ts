@@ -86,6 +86,11 @@ describe('parseDate', () => {
     assert.equal(parseDate('1899-12-31', NOW), null)
     assert.equal(parseDate('2101-01-01', NOW), null)
   })
+
+  it('trims surrounding whitespace before parsing', () => {
+    assert.equal(parseDate('  2026-08-17  ', NOW), '2026-08-17')
+    assert.equal(parseDate(' 今天 ', NOW), '2026-08-17')
+  })
 })
 
 describe('formatDate', () => {
