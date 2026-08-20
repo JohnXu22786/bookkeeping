@@ -1,5 +1,7 @@
 # dsh-bookkeeping
 
+**English · [简体中文](README.zh.md)**
+
 A conversational bookkeeping plugin for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (dsh). Record expenses and income by chatting — "记一笔 午饭 35" — then query, report, export, and budget against a local SQLite ledger.
 
 The plugin is a self-contained **dsh bundle**: an npm package whose `package.json` declares the `dsh.bundle` manifest, ships a `cordis.patch.yml` layer, and exports a standard plugin entry (`name` / `inject` / `Config` / `apply`). It works both as model-callable tools inside dsh and as a standalone CLI.

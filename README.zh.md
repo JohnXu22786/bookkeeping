@@ -1,5 +1,7 @@
 # dsh-bookkeeping
 
+**[English](README.md) · 简体中文**
+
 面向 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（dsh）的对话式记账插件。聊天即可记一笔——「记一笔 午饭 35」——随后可查询、报表、导出，并基于本地 SQLite 账本做月度预算。
 
 本插件是一个自包含的 **dsh bundle**：npm 包，`package.json` 声明 `dsh.bundle` 清单，附带 `cordis.patch.yml` 补丁层，并导出标准插件入口（`name` / `inject` / `Config` / `apply`）。它既可作为 dsh 中供模型调用的工具，也可作为独立 CLI 使用。
