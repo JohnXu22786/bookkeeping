@@ -2,6 +2,14 @@
   "name": "dsh-bookkeeping",
   "version": "1.0.0",
   "description": "Conversational bookkeeping plugin for DeepSeek Harness: record expenses/income by chat, query the ledger, run reports, export CSV/HTML, and track monthly budgets.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnXu22786/bookkeeping.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JohnXu22786/bookkeeping/issues"
+  },
+  "homepage": "https://github.com/JohnXu22786/bookkeeping#readme",
   "type": "module",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
