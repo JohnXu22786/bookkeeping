@@ -143,6 +143,23 @@ Built-in categories with keyword auto-classification: 餐饮, 交通, 购物, �
 - Filters accept `YYYY-MM` or `YYYY-MM-DD` bounds (month bounds expand to the month's first/last day). `type` defaults to both (`all`); pass `expense`/`income` to narrow.
 - Budgets are monthly (`YYYY-MM`), overall or per category. When recording an expense, matching budgets are checked immediately: ≥80% produces a near-limit notice, ≥100% an over-budget warning. Income never consumes a budget. `budget set … 0` removes a budget. An overall `budget check` reports every budget of the month (overall plus each category).
 
+## FAQ
+
+- **Where is my ledger stored?** A SQLite database `ledger.db` under the
+  configured `dataDir` (default `~/.dsh-bookkeeping`), with exports in
+  `<dataDir>/exports/`. Override via `DSH_BOOKKEEPING_DATA_DIR` or the
+  `--data-dir` CLI flag (an explicit config value wins).
+- **Can I store amounts in other currencies?** Yes — symbols and suffixes
+  select the currency (`¥`→CNY, `$`→USD, `€`→EUR, `£`→GBP, `₩`→KRW, `円`→JPY,
+  `元`/`块`→CNY). Set `currency` to change the default. There is no currency
+  conversion; aggregates assume a single currency.
+- **The model keeps booking the wrong category.** Add or adjust a custom rule:
+  `bookkeeping_rules add 关键词 分类` (or `rules add 咖啡豆 购物` in the CLI).
+  Custom rules are checked before built-in keywords.
+- **A budget warning did not fire.** Budgets are monthly and denominated in the
+  ledger's default currency; income never consumes a budget. Confirm the
+  `YYYY-MM` month string and that the entry's default currency matches.
+
 ## Development
 
 ```sh
