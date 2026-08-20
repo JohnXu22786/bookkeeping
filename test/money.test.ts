@@ -113,3 +113,20 @@ describe('currencyExponent', () => {
     assert.equal(currencyExponent('XYZ'), 2)
   })
 })
+
+describe('parseAmount edge inputs', () => {
+  it('handles leading zeros and trailing zero decimals', () => {
+    assert.deepEqual(parseAmount('0.10'), { units: '0.10', cents: 10, currency: 'CNY' })
+    assert.deepEqual(parseAmount('00.50'), { units: '00.50', cents: 50, currency: 'CNY' })
+  })
+
+  it('rejects fractional digits beyond the currency exponent', () => {
+    assert.throws(() => parseAmount('0.001'), /precision|小数/i)
+    assert.throws(() => parseAmount('35.000'), /precision|小数/i)
+  })
+
+  it('formats a zero amount deterministically', () => {
+    assert.equal(formatCents(0, 'CNY'), '¥0.00')
+    assert.equal(formatCents(0, 'JPY'), '¥0')
+  })
+})
