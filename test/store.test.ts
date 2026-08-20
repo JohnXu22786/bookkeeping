@@ -120,4 +120,11 @@ describe('BookkeepingStore', () => {
     assert.deepEqual(store.monthTotals('2026-08'), { expenseCents: 8199, incomeCents: 0 })
     assert.deepEqual(store.monthTotals('2026-07'), { expenseCents: 0, incomeCents: 300 })
   })
+
+  it('round-trips tags that require JSON escaping', () => {
+    const tags = ['slash\\back', 'quote"inside', 'multi word tag']
+    const e = store.addEntry(entry({ tags, remark: 'escape', date: '2026-09-01' }))
+    const got = store.getEntry(e.id)
+    assert.deepEqual(got!.tags, tags)
+  })
 })
